@@ -18,11 +18,24 @@ jobs:
         uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
+          activate-environment: games-env
+          environment-file: MLProject/conda.yaml
           python-version: 3.12
+
+      - name: Show Conda info
+        run: conda info
 
       - name: Install MLflow
         run: pip install mlflow
 
-      - name: Test modelling.py
+      - name: Run training script
         run: python MLProject/modelling.py
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-artifacts
+          path: |
+            mlruns/
+            *.pkl
+            *.joblib
