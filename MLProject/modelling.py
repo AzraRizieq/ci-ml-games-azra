@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error
 import mlflow
 import mlflow.sklearn
 
-df = pd.read_csv("games_processed.csv")
+df = pd.read_csv("MLProject/games_processed.csv")
 
 TARGET = "rating"
 
