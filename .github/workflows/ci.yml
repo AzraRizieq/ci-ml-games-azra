@@ -23,5 +23,6 @@ jobs:
       - name: Install MLflow
         run: pip install mlflow
 
-      - name: Run MLflow Project
-        run: mlflow run MLProject
+      - name: Test modelling.py
+        run: python MLProject/modelling.py
+
